@@ -1,16 +1,18 @@
 # Blog Post API
 
-This API is developed using TypeScript, Express.js, and MongoDB.
+This API is developed using TypeScript, Express.js, and MongoDB. The current version of the program is accessible only through API testing tools like Postman, as there is no front-end interface developed yet.
 
 ## Authentication
 
 The API utilizes JSON Web Tokens (JWT) for user authentication. Upon successful registration, users receive a JWT token, which is used to authenticate subsequent requests. Users need to include the token in the authorization header for accessing protected routes, such as creating blog posts.
 
+Once authenticated on login, the user's state will remain authenticated for 1 day before they are required to reauthenticate. During this authenticated period, users can access the system and create blog posts.
+
 ## Features
 
 1. **User Registration**: Users can create their accounts by providing a unique username and password. Passwords are hashed before storage in the database for security.
 
-2. **User Login**: Registered users can log in to the system using their credentials. Upon successful login, the API issues a JWT token to the user.
+2. **User Login**: Registered users can log in to the system using their credentials. Upon successful login, the API issues a JWT token to the user, which remains valid for 1 day.
 
 3. **Protected Routes**: Certain API routes, like creating blog posts, are protected and require user authentication. Users need to include their JWT token in the authorization header to access these routes.
 
